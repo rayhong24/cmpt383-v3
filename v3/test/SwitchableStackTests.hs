@@ -58,7 +58,8 @@ test_mapState = do
   [ ("test_mapStateBasic0",testEqual (Just 'A') (fst (pop (mapState toUpper (push empty 'a')))))
    ,("test_mapStateBasic1",testEqual (Just 3) (fst (pop (mapState (+1) (pushList empty [2,3,4])))))
    ,("test_mapStateBasic2",testEqual (Just 5) (fst (pop (mapState (+2) (pushList empty [5,3,5,4])))))
-   ,("test_mapStateBasic3",testEqual [0]    (popN (mapState (*0) (pushList empty [5,3,5,4])) 2)) ]
+   ,("test_mapStateBasic2",testEqual (Nothing) (fst (pop (mapState (+2) (pushList empty [])))))
+   ,("test_mapStateBasic3",testEqual [0]    (popN (mapState (*0) (pushList empty [5,3,5,4])) 2))]
 
 test_popWhere :: TestSuite
 test_popWhere = do

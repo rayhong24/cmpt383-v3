@@ -76,6 +76,7 @@ popWhere f (Stack (isActive, s)) =
    let 
       popped = fst (helpPop f s ([],[]))
       new_s = snd (helpPop f s ([],[])) in
+
    (popped, Stack (isActive, new_s))
 
    where
