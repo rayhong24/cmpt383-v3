@@ -64,6 +64,7 @@ test_mapState = do
 test_popWhere :: TestSuite
 test_popWhere = do
   [ ("test_popWhereBasic0",testEqual [] (fst (popWhere (\ _ -> False) (push empty 'a'))))
+   ,("test_popWhereBasic0",testEqual [] (fst (popWhere (\ _ -> False) (snd (pop (push empty 'a'))))))
    ,("test_popWhereBasic1",testEqual [2,4] (fst (popWhere (\x -> x `mod` 2 == 0) (pushList empty [2,3,4]))))
    ,("test_popWhereBasic2",testEqual [3,5] (fst (popWhere (\x -> x `mod` 2 == 1) (pushList empty [5,3,5,4]))))
    ,("test_popWhereBasic3",testEqual Nothing  (fst (pop (snd (popWhere (\ _ -> True) (pushList empty [5,3,5,4])))))) ]
